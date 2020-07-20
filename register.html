@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Omedia Health</title>
+            <link rel = "stylesheet" href="main.css">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        
+        </head>
+        <body>
+            <nav>
+                <a class="omedia" href="first-page.html">Omedia Health</a> 
+            </nav>
+            <div id="container">
+                <div >
+                    <h1 id="registration">Registration</h1>
+                    <p id="enter">Enter the information</p>
+                </div>
+                <form  id="form">
+                    <div id="info">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="Email"required>
+
+                    <label for="name">Name</label>
+                    <input id="name" type="text" placeholder="Name" required>
+
+                    <label for="password">Password</label>
+                    <input id="password" type="password" placeholder="Password" required >
+                    </div>
+                    
+                    <div id="info1">
+                    <label for="weight">Desired weight Weight</label>
+                    <input id="weight" type="text" placeholder="Weight" required>
+
+                    <label for="meal">Desired meal</label>
+                    <input id="meal" type="text" placeholder="Meal" required>
+
+                    <label for="activity">Desired Activity</label>
+                    <input id="activity" type="text" placeholder="Activity" required>
+                    </div>
+
+                    <input class="first-page-buttons" id=button value="Register" type="submit" class="first-page-buttons">
+                </form>    
+                <a id="log" href="login.html">Log in</a>
+            </div>
+           
+
+        </body>
+        
+        <script>
+            
+            const form = document.getElementById("form");
+            
+            form.addEventListener("submit",function(event){
+                const email  = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                const name=document.getElementById("name").value
+                const weight = document.getElementById("weight").value;
+                const meal = document.getElementById("meal").value;
+                const activity = document.getElementById("activity").value;
+
+
+                localStorage.setItem("email",email);
+                localStorage.setItem("password",password);
+                localStorage.setItem("name",name);
+                localStorage.setItem("weight",weight);
+                localStorage.setItem("meal",meal);
+                localStorage.setItem("activity",activity);
+
+                document.getElementById("log").click();
+                event.preventDefault();
+            })
+            
+      </script>
+    </html>

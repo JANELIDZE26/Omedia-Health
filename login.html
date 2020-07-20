@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Omedia Health</title>
+            <link rel = "stylesheet" href="main.css">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        </head>
+        <body>
+            <nav>
+                <a class="omedia" href="first-page.html">Omedia Health</a>
+            </nav>
+            <div id="container">
+                <div >
+                    <h1 id="log-in">Log in</h1>
+                </div>
+                <form id="login-form">
+                    <div id="login-fields">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="Email"required>
+                        <label for="password">Password</label>
+                        <input id="password" type="password" placeholder="Password" required > 
+                    </div>
+                </form>
+               <div >
+                <button type="submit" class="first-page-buttons" id="login-button" >Log in </button>  
+               </div>
+               <a id="log" href="profile.html">Log in</a>
+            </div>
+        </body>
+        <script>
+            
+            var button = document.getElementById("login-button")
+            var counter = 1;
+            button.addEventListener("click",function(event){
+            
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const correctEmail = localStorage.getItem("email");
+            const correctPassword = localStorage.getItem("password");
+            
+           
+            if(email.value === correctEmail && password.value === correctPassword){
+                document.getElementById("log").click();
+            }
+            else{
+                email.style.border = "1px solid red";
+                password.style.border = "1px solid red";
+                if(counter ===1){
+                    var html = "<p id='login-attention'>Incorrect Email or Password</p>"
+                    document.getElementById("login-fields").insertAdjacentHTML("beforeend",html)
+                }
+              counter +=1;
+            }
+            
+});
+            
+            
+        </script>
+    </html>

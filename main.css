@@ -1,0 +1,179 @@
+
+*{
+    font-family: 'Roboto Slab', serif;
+    margin:0;
+    padding:0;
+}
+/*///////////////////FIRST PAGE/////////////////////////////////////////////////////*/
+#first-welcome{
+    margin:auto;
+}
+#container{
+    text-align: center;
+    position: relative;
+    top:140px;
+    
+}
+nav{
+    position:fixed;
+    background-color:#63C323;
+    display:flex;
+    justify-content:flex-start;
+    z-index:2;
+    width:100%;
+    height:80px;
+}
+.omedia{
+    float:left;
+    font-size:29px;
+    margin-left:25px;
+    margin-top: 18px;
+    color: white;
+    
+}
+.welcome{
+    margin-top:10px;
+}
+.first-page-buttons{
+    width:10%;
+    margin:30px auto 0px 30px;
+    position: relative;
+    right:25px;
+    padding:5px;
+    background-color: #63C323;
+    border-radius: 5px;
+    border:1px;
+    outline: none;
+}
+.first-page-buttons:hover{
+    background-color:#7FE10D;
+    
+}
+.first-page-buttons a {
+    text-decoration: none;
+    color:white;
+    font-size:15px;
+
+}
+/*///////////////////////////Registration page ///////////////////////////////*/
+nav a {
+    text-decoration: none;
+    
+}
+form{
+    position:relative;
+    top:60px;
+   
+}
+form input{
+    display:block;
+    margin: 10px auto 10px auto;
+    padding:5px;
+}
+form input:focus{
+    outline: none;
+    border:1px solid #7FE10D;
+}
+form label {
+    display: block;
+    position:relative;
+    text-align: left;
+}
+#info{
+    float:left;
+    position: relative;
+    left:370px;
+}
+#info1{
+    float:left;
+    position: relative;
+    left:550px;
+}
+#button{
+    position: relative;
+    top:230px;
+    left:210px;
+    color:white;
+    padding:5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+#registration {
+    margin-bottom:10px;
+    font-size: 50px;
+}
+#enter{
+    font-size: 20px;
+}
+
+/*/////////log in page///////////////////////////////////////////////////*/
+#log-in{
+    font-size: 50px;
+}
+#login-button{
+    color:white;
+    position: relative;
+    top:50px; 
+    cursor:pointer; 
+}
+#log{
+    position:absolute;
+    display: none;
+}
+#login-form div  label{
+    position: relative;
+    padding:0px;
+    left:550px;  
+    
+}
+#login-attention{
+    position: relative;
+    text-align: left;
+    left:550px;
+    color:red;
+}
+/*///////////Profile Page///////////////////////////////////////////////*/
+
+#profile-page{
+    font-size:40px;
+}
+#personal-information,#dashboard{
+    float:left;
+    position:relative;
+    margin:20px;
+    padding:30px;
+    top:20px;
+}
+#dashboard{
+    left:400px;
+}
+#personal-information p {
+    padding:10px;
+    font-weight: bold;
+    text-align: left;
+}
+#pages{
+    font-size:20px;
+    position: relative;
+    left:510px;
+    top:35px;
+    height:100%;
+    
+}
+#pages a{
+
+    color:white;
+    padding:10px;
+    
+}
+#pages a:hover{
+    color:black;
+}
+.add-info{
+    color:#E59500;
+}
+#checkbox {
+    margin-left:20px;
+   width:17px;
+   height:17px;
+}

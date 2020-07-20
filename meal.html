@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Omedia Health Register</title>
+            <link rel = "stylesheet" href="main.css">
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        </head>
+        <body>
+            <nav>
+                <a class="omedia" href="">Omedia Health</a>
+                <div id="pages">
+                    <a href="">Meals</a>
+                    <a href="">Calories</a>
+                    <a href="">Activity</a> 
+                    <a href="profile.html">Profile Page</a>
+                    <a href="login.html">Log out</a>
+                </div>
+                
+            </nav>
+      
+            
+        </body>
+        <script>
+            const email = document.getElementById("email");
+            const password = document.getElementById("password");
+            const name=document.getElementById("name");
+            const weight = document.getElementById("weight");
+            const meal = document.getElementById("meal");
+            const activity = document.getElementById("activity");
+
+
+            email.textContent = localStorage.getItem("email");
+            password.textContent = "*".repeat(localStorage.getItem("password").length)
+            name.textContent = localStorage.getItem("name");
+            weight.textContent = localStorage.getItem("weight");
+            meal.textContent = localStorage.getItem("meal");
+            activity.textContent = localStorage.getItem("activity");
+
+              // controls if the password should appear
+              function myfunc(){
+                if(document.getElementById("checkbox").checked){
+                    password.textContent = localStorage.getItem("password");
+                }else{
+                    password.textContent = "*".repeat(localStorage.getItem("password").length);
+                }
+            }
+            
+        </script>
+    </html>
