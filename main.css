@@ -3,7 +3,9 @@
     font-family: 'Roboto Slab', serif;
     margin:0;
     padding:0;
+
 }
+
 /*///////////////////FIRST PAGE/////////////////////////////////////////////////////*/
 #first-welcome{
     margin:auto;
@@ -176,4 +178,127 @@ form label {
     margin-left:20px;
    width:17px;
    height:17px;
+}
+/*////////meals///////////////////////*/
+#fields-container{
+    width:50%;
+}
+#fields-container label{
+    margin-top:30px;
+    margin-left:220px ;
+    
+}
+
+
+#add-info {
+    width:15%;
+    position: relative;
+    padding:5px;
+    background-color: #63C323;
+    border-radius: 5px;
+    border:1px;
+    outline: none;
+    color:white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.info-fields {
+    width:30%;
+    cursor:text;
+}
+#add-info:hover{
+    background-color:#7FE10D;
+    
+}
+.h2{
+    position: relative;
+    top:50px;
+     
+}
+
+#result-container h2{
+    margin-right:60px;
+    
+}
+#result-container{
+    position: relative;
+    left:320px;
+    top:-230px;
+}
+#result-container table{
+    position: relative;
+    left:480px;
+}
+th, td{
+    border:1px solid black;
+    width:50%;
+    font-size:20px;
+    font-weight:bold;
+    padding:5px;
+}
+ table{
+    border-collapse: collapse;
+    width:20%;
+    position: relative;
+    left:150px;
+    margin-top:40px;
+    
+    
+}
+th{
+    background-color: #63C323;
+    color:white;
+}
+th:hover{
+    background-color: #7FE10D;
+    cursor:pointer;
+}
+
+#green-data{
+    color: green;
+}
+#red-data{
+    color:red;
+}
+.button-toolbar{
+    position: relative;
+    left:170px;
+    top:80px;
+    padding:5px;
+    display:none;
+    width:5%;
+    cursor: pointer;
+}
+#save-button{
+    
+    background-color: #99B2DD;
+    border: none;
+    outline: none;
+    color:white;
+}
+#save-button:hover{
+    background-color:#5F8BD8;
+}
+
+#cancel-button{
+    background-color: #F15156;
+    border: none;
+    outline: none;
+    color:white;
+}
+#cancel-button:hover{
+    background-color:#EA181F;
+}
+/*///////////meal////////////////////////////*/
+
+/*///////////////////////Acivity page//////////////////////////////////////////////*/
+#activity-type{
+    padding:5px;
+    width:33%;
+    margin-top:10px;
+    cursor: default;
+}
+#activity-type:focus{
+    border-color: #7FE10D;
+    outline: none;
 }

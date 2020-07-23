@@ -9,15 +9,18 @@
                 .meal-page-result-cointainer h2,table{
                     position: relative;
                     top:-90px;
+                    
                 }
                 .meal-page-result-cointainer h2{
                     position: relative;
                     left:60px;
+                   
                 }
-                #result-container{
-                    
+                #result-container{ 
                     position: relative;
                     left:270px;
+                    
+                    
                 }
                 #fields-container{
                     position: relative;
@@ -25,14 +28,15 @@
                 }
                 .meal-page-result-cointainer button{
                     position: relative;
-                    top:-13px;
+                    top:10px;
                     left:300px;
                 }
                 td,th{
-                    width:25%;
+                    width:35%; 
                 }
                 table{
                     width:30%;  
+                    
                 }
            </style>
         </head>
@@ -41,8 +45,8 @@
                 <a class="omedia" href="">Omedia Health</a>
                 <div id="pages">
                     <a href="weight.html">Weight</a>
-                    <a href="">Meal</a>
-                    <a href="activity.html">Activity</a> 
+                    <a href="meal.html">Meal</a>
+                    <a href="">Activity</a> 
                     <a href="profile.html">Profile Page</a>
                     <a href="login.html">Log out</a>
                 </div>
@@ -50,23 +54,27 @@
             </nav>
             
             <div id="container">
-                <h1>Manage Your Meals Per Day</h1>
+                <h1>Manage Your Activity</h1>
                 <div id="fields-container" >
                     <h2 class="h2">Enter the information</h2>
                     <form id="form">
                         <label for="date">Enter the date</label>
                         <input class="info-fields" id="date" type="date" required>
-                        <label for="meal-name">Meal Name</label>
-                        <input class="info-fields" id="meal-name" type="text" placeholder="Meal name" required>
-                        <label for="meal-field">Meal Calories</label>
-                        <input class="info-fields" id="meal-field" type="text" placeholder="Calories" required>
-
+                        <label for="activity-type">activity-type</label>
+                        <select class="info-fields" id="activity-type">
+                            <option>Hiking</option>
+                            <option>Running</option>
+                            <option>Swimming</option>
+                        </select>
+                        <label for="distance">Distance</label>
+                        <input class="info-fields" id="distance" type="text" placeholder="Km" required>
+                        
                         <input id="add-info" type="submit" value="Add" >
                     </form>
                         
                 </div>
                 <div  class="meal-page-result-cointainer" id="result-container">
-                    <h2>List of your Meals</h2>
+                    <h2>List of your Activities</h2>
                     
                         <button id="cancel-button" class="button-toolbar">Cancel</button>
                         <button id="save-button" class="button-toolbar">save</button>
@@ -75,16 +83,12 @@
                         <thead>
                             <tr>
                                 <th onclick="sortColumn()">Date</th>
-                                <th>Meal Name</th>
-                                <th>Calories</th>
+                                <th>Activity Type</th>
+                                <th>Burned Calories</th>
                             </tr>
                         </thead>
                         <tbody id="tableData">
-                            <!-- <tr>
-                                <td>date</td>
-                                <td>mealName</td>
-                                <td>calories</td>
-                            </tr> -->
+                            
                         </tbody>
                     </table>
                 </div>
@@ -92,5 +96,5 @@
             </div>
         </body>
       
-        <script src="meal.js"></script>
+        <script src="activity.js"></script>
     </html>
