@@ -3,15 +3,34 @@
         <head>
             <title>Omedia Health Profile</title>
             <link rel = "stylesheet" href="main.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        </head>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        
+            <style>
+                #dashboard{
+                    position:relative;
+                    top:-360px;
+                }
+                #dashboard h2 {
+                    position: relative;
+                    right:120px;
+                }
+                .table{
+                    width:50%;
+                }
+                th,td{
+                    width:15%;
+                    
+                }
+
+            </style>
+        </head>
         <body>
             <nav>
                 <a class="omedia" href="">Omedia Health</a>
                 <div id="pages">
                     <a href="weight.html">Weight</a>
                     <a href="meal.html">Meal</a>
-                    <a href="">Activity</a> 
-                    <a href="profile.html">Profile Page</a>
+                    <a href="activity.html">Activity</a> 
+                    <a href="">Profile Page</a>
                     <a href="login.html">Log out</a>
                 </div>
                 
@@ -19,44 +38,37 @@
             <div id="container">
               <h1 id="profile-page">Profile Page</h1>
               <div id="personal-information">
-                <h2>Personal Information</h2>
+                <h2>Personal Information <button id="edit-button">Edit</button></h2>
+              
                 <p>Name:  <span id="name" class="add-info"></span></p>
-                <p>Email:<span id="email" class="add-info"></span></p>
-                <p>Password:  <span id="password" class="add-info"></span><input type="checkbox" id="checkbox" onclick="myfunc()" > Show Password</p>
+                <p>Email: <span id="email" class="add-info"></span></p>
+                <p>Password:  <span id="password" class="add-info"></span><input type="checkbox" id="checkbox" onclick="myfunc()" > Show the Password</p>
                 <p>Desired Weight:  <span id="weight" class="add-info"></span></p>
                 <p>desired meal calories per day:  <span id="meal" class="add-info"></span></p>
                 <p>desired activity calories per day:  <span id="activity" class="add-info"></span></p>
-              </div>
+              
+                <div id="profile-edit">
+                    <button class="profile-edit-buttons" id="profile-edit-save">Save</button>
+                    <button class="profile-edit-buttons" id="profile-edit-cancel">Cancel</button>
+                </div>
+            </div>
               <div id="dashboard">
                 <h2>Dashboard</h2>
-              </div>
+                <table class="table">
+                    <htead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight</th>
+                            <th>Meal Calories</th>
+                            <th>Burned Calories</th>  
+                        </tr>
+                    </htead>
+                    <tbody id="tableData"> </tbody>
+                   
+                </table>
+               </div>
             </div>
             
         </body>
-        <script>
-            const email = document.getElementById("email");
-            const password = document.getElementById("password");
-            const name=document.getElementById("name");
-            const weight = document.getElementById("weight");
-            const meal = document.getElementById("meal");
-            const activity = document.getElementById("activity");
-
-
-            email.textContent = localStorage.getItem("email");
-            password.textContent = "*".repeat(localStorage.getItem("password").length)
-            name.textContent = localStorage.getItem("name");
-            weight.textContent = localStorage.getItem("weight");
-            meal.textContent = localStorage.getItem("meal");
-            activity.textContent = localStorage.getItem("activity");
-
-              // controls if the password should appear
-              function myfunc(){
-                if(document.getElementById("checkbox").checked){
-                    password.textContent = localStorage.getItem("password");
-                }else{
-                    password.textContent = "*".repeat(localStorage.getItem("password").length);
-                }
-            }
-            
-        </script>
+        <script src="profile.js"></script>
     </html>

@@ -18,7 +18,7 @@
                 }
                 #result-container{ 
                     position: relative;
-                    left:270px;
+                    left:140px;
                     
                     
                 }
@@ -28,15 +28,33 @@
                 }
                 .meal-page-result-cointainer button{
                     position: relative;
-                    top:10px;
-                    left:300px;
+                    top:-18px;
+                    left:490px;
+                    
                 }
                 td,th{
-                    width:35%; 
+                    width:25%; 
                 }
                 table{
-                    width:30%;  
+                    width:40%;  
                     
+                }
+                #delete-button{
+                    position:relative;
+                    top:150px;
+                    left:355px;
+                    padding:2px;
+                    display:none;
+                    width:10.3%;
+                    top:10px;
+                    cursor:pointer;
+                    background-color:#F15156;
+                    color:white;
+                    outline:none;
+                    border:1px;
+                }
+                #delete-button:hover{
+                    background-color:#EE2128;
                 }
            </style>
         </head>
@@ -67,7 +85,7 @@
                             <option>Swimming</option>
                         </select>
                         <label for="distance">Distance</label>
-                        <input class="info-fields" id="distance" type="text" placeholder="Km" required>
+                        <input class="info-fields" id="distance" type="number" placeholder="Km" required>
                         
                         <input id="add-info" type="submit" value="Add" >
                     </form>
@@ -75,22 +93,38 @@
                 </div>
                 <div  class="meal-page-result-cointainer" id="result-container">
                     <h2>List of your Activities</h2>
+                 
+                        <select  id="table-filter">
+                            <option>Hiking</option>
+                            <option>Running</option>
+                            <option>Swimming</option>
+                        </select>
                     
+                        <div id="filter-buttons">
+                        <button  id="filter-button"class="filter-toolbar">Filter</button>
+                        <button id="filter-cancel-button" class="filter-toolbar">Cancel</button>
+                        </div>
                         <button id="cancel-button" class="button-toolbar">Cancel</button>
                         <button id="save-button" class="button-toolbar">save</button>
-                    
+
+                        <button id="delete-button" >Delete</button>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th onclick="sortColumn()">Date</th>
+                                <th>Date</th>
                                 <th>Activity Type</th>
+                                <th>Distance(Km)</th>
                                 <th>Burned Calories</th>
                             </tr>
                         </thead>
+                       
+                            
+                       
                         <tbody id="tableData">
                             
                         </tbody>
                     </table>
+                    
                 </div>
 
             </div>

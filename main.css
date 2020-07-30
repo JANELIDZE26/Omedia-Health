@@ -21,7 +21,7 @@ nav{
     background-color:#63C323;
     display:flex;
     justify-content:flex-start;
-    z-index:2;
+    z-index:999999999;
     width:100%;
     height:80px;
 }
@@ -65,7 +65,7 @@ nav a {
 form{
     position:relative;
     top:60px;
-   
+    z-index:1000;
 }
 form input{
     display:block;
@@ -179,6 +179,55 @@ form label {
    width:17px;
    height:17px;
 }
+#edit-button {
+    background-color:#595959;
+    color:white;
+   outline:none;
+    width:15%;
+    cursor: pointer;
+    display:inline-block;
+}
+#edit-button:hover{
+    background-color:#C98986;
+}
+#dashboard h2{
+    position: relative;
+    z-index:-1;
+}
+#profile-edit{
+    margin-top:10px;
+    
+}
+#profile-edit button {
+    padding:2px;
+    width:20%;
+    cursor: pointer;
+    color:white;
+    outline:none;
+    display:none;
+}
+#profile-edit-cancel{
+    background-color:#9BC53D;
+    outline:none;
+   border:1px;
+}
+#profile-edit-cancel:hover{
+    background-color:#69950A;
+}
+#profile-edit-save{
+    background-color:#99B2DD;
+    outline:none;
+   border:1px;
+    
+}
+#profile-edit-save:hover{
+    background-color:#5F8BD8;
+}
+.edit{
+    border: 1px solid #7FE10D;
+    padding:5px;
+    caret-color: #191516;
+}
 /*////////meals///////////////////////*/
 #fields-container{
     width:50%;
@@ -281,14 +330,17 @@ th:hover{
 }
 
 #cancel-button{
-    background-color: #F15156;
+    background-color: #9BC53D;
     border: none;
     outline: none;
     color:white;
+    
 }
 #cancel-button:hover{
-    background-color:#EA181F;
+    background-color:#69950A;
 }
+
+
 /*///////////meal////////////////////////////*/
 
 /*///////////////////////Acivity page//////////////////////////////////////////////*/
@@ -301,4 +353,65 @@ th:hover{
 #activity-type:focus{
     border-color: #7FE10D;
     outline: none;
+}
+
+#table-filter{
+    position: relative;
+    top:-45px;
+    right:62px;
+    padding:5px;
+    width:14.5%;
+    margin-top:10px;
+    cursor: default;
+    display:inline-block;
+    z-index:2;
+}
+#table-filter:focus{
+    border-color: #7FE10D;
+    outline: none;
+    
+}
+#filter-buttons{
+    position: relative;
+    top:-52px;
+    right:385px;
+    z-index:1;
+}
+.filter-toolbar{
+    padding:2px;
+    color:white;
+    outline:none;
+    width:5%;
+    height:5%;
+    outline:none;
+    cursor: pointer;
+}
+#filter-button{
+    background-color:#E5B25D;
+    border:1px solid #30323D;
+  
+}
+#filter-button:hover{
+    background-color: #E1A030;
+}
+
+#filter-cancel-button{
+    background-color: #5A3A31;
+    border:1px solid #5B6C5D;
+}
+#filter-cancel-button:hover{
+    background-color: #3F180D;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

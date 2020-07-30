@@ -17,7 +17,8 @@
                 #result-container{
                     
                     position: relative;
-                    left:270px;
+                    /* left:270px; */
+                    left:100px;
                 }
                 #fields-container{
                     position: relative;
@@ -26,13 +27,29 @@
                 .meal-page-result-cointainer button{
                     position: relative;
                     top:-13px;
-                    left:300px;
+                    left:490px;
                 }
                 td,th{
-                    width:25%;
+                    width:35%;
                 }
                 table{
-                    width:30%;  
+                    width:40%;  
+                }
+                #delete-button{
+                    position:relative;
+                    left:355px;
+                    padding:2px;
+                    display:none;
+                    width:10.3%;
+                    top:15px;
+                    cursor:pointer;
+                    background-color:#F15156;
+                    color:white;
+                    outline:none;
+                    border:1px;
+                }
+                #delete-button:hover{
+                    background-color:#EE2128;
                 }
            </style>
         </head>
@@ -59,7 +76,7 @@
                         <label for="meal-name">Meal Name</label>
                         <input class="info-fields" id="meal-name" type="text" placeholder="Meal name" required>
                         <label for="meal-field">Meal Calories</label>
-                        <input class="info-fields" id="meal-field" type="text" placeholder="Calories" required>
+                        <input class="info-fields" id="meal-field" type="number" placeholder="Calories" required>
 
                         <input id="add-info" type="submit" value="Add" >
                     </form>
@@ -70,7 +87,7 @@
                     
                         <button id="cancel-button" class="button-toolbar">Cancel</button>
                         <button id="save-button" class="button-toolbar">save</button>
-                    
+                        <button id="delete-button" >Delete</button>
                     <table class="table">
                         <thead>
                             <tr>

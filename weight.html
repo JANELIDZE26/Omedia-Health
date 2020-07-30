@@ -4,7 +4,33 @@
             <title>Omedia Health</title>
            
             <link rel = "stylesheet" href="main.css">
-            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        </head>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">        
+        </head>
+        <style>
+        
+         .button-toolbar{
+             top:70px;
+             left:240px;
+         }
+         #delete-button{
+                    position:relative;
+                    top:100px;
+                    left:105px;
+                    padding:2px;
+                    display:none;
+                    width:10.3%;
+                    
+                    cursor:pointer;
+                    background-color:#F15156;
+                    color:white;
+                    outline:none;
+                    border:1px;
+                    
+                }
+                #delete-button:hover{
+                    background-color:#EE2128;
+                }
+        </style>
         <body>
             <nav>
                 <a class="omedia" href="">Omedia Health</a>
@@ -26,7 +52,7 @@
                         <label for="date">Enter the date</label>
                         <input class="info-fields" id="date" type="date" required>
                         <label for="weight-field">Enter your Weight(In Kg)</label>
-                        <input class="info-fields" id="weight-field" type="text" placeholder="Weight in Kg" required>
+                        <input class="info-fields" id="weight-field" type="number" placeholder="Weight in Kg" required>
 
                         <input id="add-info" type="submit" value="Add" >
                     </form>
@@ -37,7 +63,7 @@
                     
                         <button id="cancel-button" class="button-toolbar">Cancel</button>
                         <button id="save-button" class="button-toolbar">save</button>
-                    
+                        <button id="delete-button" >Delete</button>
                     <table class="table">
                         <thead>
                             <tr>

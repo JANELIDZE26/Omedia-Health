@@ -1,20 +1,23 @@
 const form = document.getElementById("form");
 let Dataweight = [];
-let desiredWeight = localStorage.getItem("weight")
-
+let desiredWeight = localStorage.getItem("weight");
+let nodeElement;
+let indexOfElement;
 let shouldEventStart = true;
 let counter = 0;
-
+if(JSON.parse(localStorage.getItem("weightData")) === null){
+    localStorage.setItem("weightData",JSON.stringify(Dataweight));
+  }
 window.onload = function () {
    
     loadTableData();
     
     let editable = new TableCellEditing(document.querySelector("table"))
     editable.init();
-    Dataweight = JSON.parse(localStorage.getItem("weightData"));
+   
     let data = document.querySelectorAll("#color")
     changeColor(data);
-    
+     Dataweight = JSON.parse(localStorage.getItem("weightData"));
 }
 
 class TableCellEditing{
@@ -24,13 +27,14 @@ class TableCellEditing{
     init(){
         this.tds = this.tbody.querySelectorAll("td");
         
-        this.tds.forEach(td => {
+        this.tds.forEach((td,index) => {
             
             td.setAttribute("contenteditable",true);       
                 td.addEventListener("click",() =>{
+                    indexOfElement = index;
                     if(shouldEventStart){
                        
-                        this.startEditing(td);
+                        this.startEditing();
                     } 
                     shouldEventStart = false;
                             
@@ -39,13 +43,13 @@ class TableCellEditing{
   
     }
 
-    startEditing(td){ 
+    startEditing(){ 
         
         
         //td.setAttribute("data-old-value",td.innerHTML);
-        this.createButtonToolbar(td);
+        this.createButtonToolbar();
     }
-    finishEditing(buttons,td){
+    finishEditing(buttons){
         let dateData = document.querySelectorAll(".date-data");
         let weightData = document.querySelectorAll(".weight-data");
         
@@ -69,12 +73,57 @@ class TableCellEditing{
     changeData(dateData,weightData){
         let changedData = [];
         for(let i = 0;i<dateData.length;i++){
-           var changed = new WeightObj(dateData[i].innerHTML,weightData[i].innerHTML)
+
+            let date = dateData[i].innerHTML;
+            let weight = weightData[i].innerHTML;
+
+
+            date = date.split("-").map(y => y.split("").map(curr => parseInt(curr)).filter(curr => !isNaN(curr)).join("")).join("-")            
+            weight = parseInt(weight.split("").map(curr => parseInt(curr)).filter(curr => !isNaN(curr)).join(""));
+           
+            
+            if(!weight) weight = 0;
+            if(!date) date = "yy-mm-dd";
+
+
+
+
+           var changed = new WeightObj(date,weight)
            changedData.push(changed);
         }
         return changedData;
     }
-    cancelEditing(td,buttons){
+    deleteRow(buttons){
+        counter +=1;
+       
+
+        shouldEventStart = true;
+        buttons.forEach(el => {
+           
+            el.style.display = "none";
+            
+        });
+        loadTableData();
+        let data = document.querySelectorAll("#color")
+        //console.log(data);
+        changeColor(data);
+        this.init();
+
+        Array.from(data).forEach(curr => {
+            //console.log(this.tds[indexOfElement].parentNode)
+            if(curr.parentNode.isSameNode(this.tds[indexOfElement].parentNode)){
+                indexOfElement = Array.from(data).indexOf(curr)
+            }
+        });
+        Dataweight.splice(indexOfElement,1);  
+        localStorage.setItem("weightData",JSON.stringify(Dataweight));
+        loadTableData();
+        data = document.querySelectorAll("#color")
+        //console.log(data);
+        changeColor(data);
+        this.init();
+    }
+    cancelEditing(buttons){
         counter +=1;
         shouldEventStart = true;
         buttons.forEach(el => {
@@ -89,26 +138,30 @@ class TableCellEditing{
         changeColor(data);
         //td.innerHTML = td.getAttribute("data-old-value");
     }
-    createButtonToolbar(td,tds){
+    createButtonToolbar(){
 
         let cancelButton = document.getElementById("cancel-button")
         let saveButton = document.getElementById("save-button")
-        let buttons = [cancelButton,saveButton]
+        let deleteButton = document.getElementById("delete-button");
+        let buttons = [cancelButton,saveButton,deleteButton];
         
         buttons.forEach(el => {
             
             el.style.display = "inline-block";
         })
-        if(counter === 0){
-            cancelButton.addEventListener("click",() =>{
-            
-            this.cancelEditing(td,buttons)
-        });
-   
-            saveButton.addEventListener("click",() =>{
-            
-            this.finishEditing(buttons,td,tds)
-        });
+            if(counter === 0){
+                cancelButton.addEventListener("click",() =>{
+                
+                this.cancelEditing(buttons)
+            });
+    
+                saveButton.addEventListener("click",() =>{
+                
+                this.finishEditing(buttons)
+            });
+            deleteButton.addEventListener("click",() => {
+                this.deleteRow(buttons);
+            });
         }  
     }
 }
@@ -117,34 +170,44 @@ let WeightObj = function(date,weight){
     this.date = date;
     this.weight = weight;
 }
+form.addEventListener("submit",addItem);
 form.addEventListener("submit",function(event){
+    if(event.keyCode===13 || event.which===13){
+        addItem(event);
+    }
+  });
+
+
+
+ function addItem (event){
     // get fields
     let date = document.getElementById("date");
     let weight = document.getElementById("weight-field");
-
+    date.focus()
     // create new obj
-    let newOBj  = new WeightObj(date.value,weight.value);
+    let newOBj  = new WeightObj(date.value,Math.abs(weight.value));
     Dataweight.push(newOBj);
 
-   localStorage.setItem("weightData",JSON.stringify(Dataweight));
-    
+    localStorage.setItem("weightData",JSON.stringify(Dataweight));
+
     // render 
     loadTableData();
-    
+
     //edit table
     let editable = new TableCellEditing(document.querySelector("table"));
     editable.init();
 
     // check if weight is more than desired weight
     let data = document.querySelectorAll("#color")
-    
+
     changeColor(data);
-    
+
     //clear fields
     date.value="";
     weight.value="";
     event.preventDefault();
-})
+}
+
 
 function loadTableData(){
     const tableBody = document.getElementById("tableData");
